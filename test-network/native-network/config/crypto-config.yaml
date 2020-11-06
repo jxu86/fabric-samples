@@ -1,0 +1,29 @@
+OrdererOrgs:
+  - Name: Orderer    # Orderer的名称
+    Domain: example.com    # 域名
+    Specs:
+      - Hostname: orderer    # hostname + Domain的值组成Orderer节点的完整域名
+
+    
+PeerOrgs:
+  - Name: Org1
+    Domain: org1.example.com
+    EnableNodeOUs: true        # 在msp下生成config.yaml文件
+    Template:
+      Count: 2
+      SANS:
+        - localhost
+        - "127.0.0.1"
+    Users:
+      Count: 2
+
+  - Name: Org2
+    Domain: org2.example.com
+    EnableNodeOUs: true
+    Template:
+      Count: 2
+      SANS:
+        - localhost
+        - "127.0.0.1"
+    Users:
+      Count: 2
