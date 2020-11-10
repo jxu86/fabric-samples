@@ -267,13 +267,13 @@ function createOrgs() {
     echo "############ Create Orderer Org Identities ###############"
     echo "##########################################################"
 
-    createOrderer
+     createOrderer
 
   fi
 
   echo
   echo "Generate CCP files for Org1 and Org2"
-  ./organizations/ccp-generate.sh
+   ./organizations/ccp-generate.sh
 }
 
 # Once you create the organization crypto material, you need to create the
@@ -349,7 +349,7 @@ function networkUp() {
 
   IMAGE_TAG=$IMAGETAG docker-compose ${COMPOSE_FILES} up -d 2>&1
 
-  docker ps -a
+  docker ps
   if [ $? -ne 0 ]; then
     echo "ERROR !!!! Unable to start network"
     exit 1
