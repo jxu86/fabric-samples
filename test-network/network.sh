@@ -416,6 +416,8 @@ function networkDown() {
     # remove channel and script artifacts
     rm -rf channel-artifacts log.txt fabcar.tar.gz fabcar
 
+    # remove ledger data
+    rm -rf docker/data
   fi
 }
 
