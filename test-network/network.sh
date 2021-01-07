@@ -100,7 +100,7 @@ function checkPrereqs() {
   # use the fabric tools container to see if the samples and binaries match your
   # docker images
   LOCAL_VERSION=$(peer version | sed -ne 's/ Version: //p')
-  DOCKER_IMAGE_VERSION=$(docker run --rm hyperledger/fabric-tools:$IMAGETAG peer version | sed -ne 's/ Version: //p' | head -1)
+  DOCKER_IMAGE_VERSION=$(docker run --rm foresee/chain-tools:$IMAGETAG peer version | sed -ne 's/ Version: //p' | head -1)
 
   echo "LOCAL_VERSION=$LOCAL_VERSION"
   echo "DOCKER_IMAGE_VERSION=$DOCKER_IMAGE_VERSION"
@@ -138,7 +138,7 @@ function checkPrereqs() {
       exit 1
     fi
     CA_LOCAL_VERSION=$(fabric-ca-client version | sed -ne 's/ Version: //p')
-    CA_DOCKER_IMAGE_VERSION=$(docker run --rm hyperledger/fabric-ca:$CA_IMAGETAG fabric-ca-client version | sed -ne 's/ Version: //p' | head -1)
+    CA_DOCKER_IMAGE_VERSION=$(docker run --rm foresee/chain-ca:$CA_IMAGETAG fabric-ca-client version | sed -ne 's/ Version: //p' | head -1)
     echo "CA_LOCAL_VERSION=$CA_LOCAL_VERSION"
     echo "CA_DOCKER_IMAGE_VERSION=$CA_DOCKER_IMAGE_VERSION"
 
@@ -449,9 +449,9 @@ CC_SRC_LANGUAGE=golang
 # Chaincode version
 VERSION=1
 # default image tag
-IMAGETAG="latest"
+IMAGETAG="2.2.0"
 # default ca image tag
-CA_IMAGETAG="latest"
+CA_IMAGETAG="1.4.9"
 # default database
 DATABASE="leveldb"
 
